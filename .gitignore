@@ -198,3 +198,6 @@ bundle.js
 bundle.js.map
 .fable
 main.js
+
+# fix
+build/

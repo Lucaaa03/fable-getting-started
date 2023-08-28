@@ -1,15 +1,16 @@
-var path = require("path");
+"use strict";
+
+const path = require("node:path");
 
 module.exports = {
-    mode: "none",
-    entry: "./src/App.fsproj",
-    devServer: {
-        contentBase: path.join(__dirname, "./dist")
+    mode: "development",
+    entry: "./build/App.js",
+    output: {
+        path: path.join(__dirname, "./dist"),
+        filename: "main.js",
     },
-    module: {
-        rules: [{
-            test: /\.fs(x|proj)?$/,
-            use: "fable-loader"
-        }]
-    }
-}
+    devServer: {
+        static: path.join(__dirname, "./dist"),
+        open: true,
+    },
+};
