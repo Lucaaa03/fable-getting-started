@@ -2,7 +2,18 @@ module App
 
 open Browser.Dom
 
-let printMsgButton = document.getElementById "printMsg"
+let increase = document.getElementById("increase")
+let decrease = document.getElementById("decrease")
+let countViewer = document.getElementById("countViewer")
 
-printMsgButton.onclick <- fun eventArgs ->
-    printfn "Button clicked!"
+let mutable currentCount = 0
+
+increase.onclick <- fun ev ->
+    currentCount <- currentCount + 1
+    countViewer.innerText <- sprintf "Count is at %d" currentCount
+
+decrease.onclick <- fun ev ->
+    currentCount <- currentCount - 1
+    countViewer.innerText <- sprintf "Count is at %d" currentCount
+
+countViewer.innerText <- sprintf "Count is at %d" currentCount
